@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/jquery/2.2.3/jquery.min.js"></script>
+<script type="text/javascript"
+	src="webjars/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="webjars/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" />
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+</head>
+
+<body class="container">
+	<form th:action="@{/saveEdit}" method="post" style="max-width: 600px;"
+		th:object="${country}">
+		<div class="form-group">
+			<label for="name" class="form-control-label">Country:</label> <input
+				type="text" class="form-control" th:field="*{name}" /><span
+				th:errors="*{name}" class="label label-danger"></span>
+		</div>
+		<div class="form-group">
+			<label for="capital" class="form-control-label">Capital:</label> <input
+				type="text" class="form-control" th:field="*{capital}" /><span
+				th:errors="*{capital}" class="label label-danger"></span>
+		</div>
+		<input type="submit" class="btn btn-primary" value="Save" /> <a
+			th:href="@{/}" class="btn btn-secondary delBtn">List</a>
+	</form>
+
+</body>
+</html>
